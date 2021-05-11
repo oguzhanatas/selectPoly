@@ -1,7 +1,7 @@
 ======
 selectPoly
 ======
-A simple selecting module with using interactive points in python
+A simple selecting module with using interactive polygonal points in python
 You can change input parameters on the functions as you wish (I gave a sample in the scripts)
 
 **when you run the code, it shows a figure on your screen and you can move the polygonal point(red dot) holding your mouse click**
@@ -19,11 +19,11 @@ Python Versions and Dependencies
 
 Keyboard usage
 ^^^^^^^^^^^^^
-- `w save data in the ploygonal points`_
-- `r save current figure`_
-- `i add more polygonal point which closest the cursor`_
-- `d delete polygonal point which closest the cursor`_
-- `t hide/show all polygnal points`_
+- `w save data in the ploygonal points`
+- `r save current figure`
+- `i add more polygonal point which closest the cursor`
+- `d delete polygonal point which closest the cursor`
+- `t hide/show all polygnal points`
 
 Run the sample code (on your terminal)
 ^^^^^^^^^^^^
