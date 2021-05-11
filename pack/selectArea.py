@@ -5,6 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import time
 import matplotlib
+from matplotlib.ticker import AutoMinorLocator
 
 
 def hrpoly(x,y,figname,outputname):
@@ -23,10 +24,7 @@ def hrpoly(x,y,figname,outputname):
 	
 	p=plg(ax,poly,data,figname,outputname)
 	
-	sc=ax.scatter(x,y,c='k',ec=None,alpha=0.6,s=1)
-		
-	ax.set_ylim(0,120)
-	ax.set_xlim(0,120)
+	sc=ax.scatter(x,y,c='k',ec=None,alpha=0.8,s=1)
 
 	ax.set_xlabel('x')
 	ax.xaxis.label.set_fontsize(12)
@@ -34,16 +32,14 @@ def hrpoly(x,y,figname,outputname):
 	ax.yaxis.label.set_fontsize(12)
 	ax.xaxis.label.set_color('red')
 	ax.yaxis.label.set_color('red')
-	#ax.xaxis.set_minor_locator(AutoMinorLocator(5))
-	#ax.yaxis.set_minor_locator(AutoMinorLocator(5))
+	ax.xaxis.set_minor_locator(AutoMinorLocator(5))
+	ax.yaxis.set_minor_locator(AutoMinorLocator(5))
 	ax.tick_params(which='both', width=1)
 	ax.tick_params(which='major', length=7)
 	ax.tick_params(which='minor', length=4)
 
 	ax.grid(True)
-	#plt.tight_layout()
 	
-	#plt.savefig('./fig_output/'+figname,dpi=300,bbox_inches='tight')
 	plt.show()
 	end_time=time.time()
 	elapsed=end_time-start_time
