@@ -1,7 +1,6 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import matplotlib.colors as colors
 from matplotlib.lines import Line2D
 from matplotlib.artist import Artist
 
@@ -123,15 +122,16 @@ class PolygonInteractor(object):
 		if not self.showverts: return
 		if event.button != 1: return
 		self._ind = None
-		#filtre islemleri yapilacak
-
-		self.poly.xy
+		
+		'filtering in lines data'
+		#self.poly.xy
 		vrcmd = self.gdata[['x','y']].to_numpy()
 		filtred = self.poly.contains_points(self.ax.transData.transform(vrcmd))
 		self.fdata = self.gdata.loc[filtred, :].copy()
+		print('in lines: ',str(len(self.fdata)),' points')
 		#self.ax.plot(0,0,label=str(len(self.fdata)))
-		#self.count=self.ax.legend(str(len(self.fdata)),loc='upper left')        
-		#self.ax.add_line(self.count) 
+		#self.count=self.ax.legend([str(len(self.fdata))],loc='upper left')   
+		#self.ax.add_line(self.count)
 
 	def key_press_callback(self, event):
 		'whenever a key is pressed'
@@ -165,14 +165,10 @@ class PolygonInteractor(object):
 					break
                 
 		elif event.key == 'r':
-			#fig_name=input('enter fig name...: ')	
 			plt.savefig('./fig_output/'+self.figpath+"_filtered.png", dpi=256, format='png', bbox_inches='tight')
 			print('png has been saved...')
 
 		elif event.key == 'w':
-			#tmpdt = self.fdata[['dist','rpe']].copy()
-			#fd_name=input('enter the filtered data name...: ')
-			#tmpdt=self.fdata.copy()
 			self.fdata.to_csv('./data_output/'+self.datapath+'_filtered.csv',index=False)
 			polyxy = self.poly.get_xy()
 

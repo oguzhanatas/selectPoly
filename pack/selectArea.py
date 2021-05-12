@@ -4,7 +4,6 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import time
-import matplotlib
 from matplotlib.ticker import AutoMinorLocator
 
 
@@ -40,6 +39,7 @@ def hrpoly(x,y,figname,outputname):
 
 	ax.grid(True)
 	
+	#plt.legend()
 	plt.show()
 	end_time=time.time()
 	elapsed=end_time-start_time
